@@ -1,0 +1,29 @@
+﻿
+
+<aside class="main-sidebar">
+    <div class="main-sidebar__item">
+        <div class="item-label right">about author</div>
+        <figure class="main-sidebar__figure">
+            <img src="@Model[3].Image" alt="" />
+        </figure>
+        <h3 class="main-sidebar__title">@Model[3].Title</h3>
+        <p class="main-section__description">
+            @Model[3].Content.Substring(0, 150)
+        </p>
+    </div>
+    <div class="main-sidebar__item">
+        <div class="item-label right">recent</div>
+        <ul class="recent-list">
+            @foreach(ArticleModel article in Model) {
+            <li class="recent-list__item">
+                <figure class="recent-list__img">
+                    <img src="@article.Image" alt="@article.Title" title="@article.Title" />
+                </figure>
+                <a asp-action="Article" asp-route-id="@article.Id" class="recent-list__description">
+                    Deciding on a menu for dinner
+                </a>
+            </li>
+            }
+        </ul>
+    </div>
+</aside>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+<section class="main-section">
+    @foreach (ArticleModel article in Model)
+    {
+        <div class="main-section__item">
+            <div class="item-label left star"></div>
+            <figure class="main-section__figure">
+                <a asp-action="Article" asp-route-id="@article.Id" class="main-section__detail"></a>
+                <img class="main-section__img" src="@article.Image" alt="@article.Title" title="@article.Title" />
+            </figure>
+            <figcaption>
+                <a asp-action="Article" asp-route-id="@article.Id" class="main-section__title">
+                    @article.Title
+                </a>
+                <div class="main-section__writer">
+                    <span class="author">@article.Author</span>
+                    <span class="date">@article.Date</span>
+                    <span class="comments">@article.Comments comments</span>
+                </div>
+                <p class="main-section__description">
+                    @article.Content.Substring(0, 285)
+                </p>
+                <div class="button__wrapper">
+                    <a asp-action="Article" asp-route-id="@article.Id" class="main-section__button">Читати більше</a>
+                </div>
+            </figcaption>
+        </div>
+    }
+</section>
+@await Html.PartialAsync("_Sidebar")

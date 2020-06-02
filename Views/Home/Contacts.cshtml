@@ -1,0 +1,51 @@
+﻿@model MiniBlog.Models.FBFormModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<section calss="main-section">
+    <div class="main-section__item">
+        <h3 class="contact__title">Форма зворотнього зв'язку</h3>
+            <div asp-validation-summary="All"></div>
+            <form aasp-action="Contacts" method="post" class="contact__form">
+                <div class="contact__form-field">
+                    <label asp-for="FirstName">Ім'я</label>
+                    <input type="text" asp-for="FirstName" />
+                </div>
+                <div class="contact__form-field">
+                    <label asp-for="LastName">Прізвище</label>
+                    <input asp-for="LastName" />
+                </div>
+                <div class="contact__form-field">
+                    <label asp-for="Phone">Телефон</label>
+                    <input asp-for="Phone" />
+                </div>
+                <div class="contact__form-field">
+                    <label asp-for="Email">Email</label>
+                    <input asp-for="Email" />
+                </div>
+                <div class="contact__form-field">
+                    <label for="categories">Причина обратного зав'язку</label>
+                    <select asp-for="Categories" id="categories">
+                        <option value="charity">Благодійність</option>
+                        <option value="bad">Висказати невдоволеність</option>
+                        <option value="good">Подякувати за роботу</option>
+                        <option value="another">Iніші</option>
+                    </select>
+                </div>
+                <div class="contact__form-field">
+                    <input type="checkbox" asp-for="Policy" />
+                    <label asp-for="Policy" class="checkbox__label">Погоджуюсь з обробкою персональних даних:</label>
+                </div>
+                <div class="contact__form-field">
+                    <label asp-for="Message">Повідомлення</label>
+                    <textarea asp-for="Message"></textarea>
+                </div>
+                <button type="submit" class="main-section__button">Відправити</button>
+            </form>
+
+            <p class="contact__describe">
+                Після того того як ви відправете форму наш менеджер зв'яжеться з вами.
+                Ви можете постевити запитання які вас цікавлять або ви можете пожетвувати кошти на обслуговування сайту.
+            </p>
+        </div>
+</section>
